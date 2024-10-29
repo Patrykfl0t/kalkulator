@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+</head>
+<body>
+    <h1>Kalkulator</h1>
+    <button onclick="uruchomKalkulator()">Uruchom Kalkulator</button>
+
+    <script>
+        function uruchomKalkulator() {
+            let liczba1 = parseFloat(prompt("Podaj pierwszą liczbę:"));
+            let liczba2 = parseFloat(prompt("Podaj drugą liczbę:"));
+            let dzialanie = prompt("Podaj działanie (+, -, *, /):");
+
+            let wynik;
+
+            if (isNaN(liczba1) || isNaN(liczba2)) {
+                alert("Wprowadzone wartości muszą być liczbami!");
+                return;
+            }
+
+            switch (dzialanie) {
+                case "+":
+                    wynik = liczba1 + liczba2;
+                    break;
+                case "-":
+                    wynik = liczba1 - liczba2;
+                    break;
+                case "*":
+                    wynik = liczba1 * liczba2;
+                    break;
+                case "/":
+                    if (liczba2 === 0) {
+                        alert("Nie można dzielić przez zero!");
+                        return;
+                    }
+                    wynik = liczba1 / liczba2;
+                    break;
+                default:
+                    alert("Nieznane działanie. Użyj +, -, * lub /.");
+                    return;
+            }
+
+            alert("Wynik: " + wynik);
+        }
+    </script>
+</body>
+</html>
